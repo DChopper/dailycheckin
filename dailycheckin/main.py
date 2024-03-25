@@ -79,13 +79,16 @@ def checkin():
     exclude = args.exclude
     if not include:
         include = list(checkin_map.keys())
+        # print(include)
     else:
         include = [one for one in include if one in checkin_map.keys()]
+        # print(include)
     if not exclude:
         exclude = []
     else:
         exclude = [one for one in exclude if one in checkin_map.keys()]
     task_list = list(set(include) - set(exclude))
+    # print(task_list)
     notice_info, check_info = check_config(task_list)
     if check_info:
         task_name_str = "\n".join(
@@ -117,9 +120,9 @@ def checkin():
         content_list.append(
             f"开始时间: {utc_time}\n"
             f"任务用时: {int(time.time() - start_time)} 秒\n"
-            f"当前版本: {__version__}\n"
-            f"最新版本: {latest_version}\n"
-            f"项目地址: https://github.com/Sitoi/dailycheckin"
+            # f"当前版本: {__version__}\n"
+            # f"最新版本: {latest_version}\n"
+            # f"项目地址: https://github.com/Sitoi/dailycheckin"
         )
         push_message(content_list=content_list, notice_info=notice_info)
         return
@@ -127,3 +130,4 @@ def checkin():
 
 if __name__ == "__main__":
     checkin()
+    # print(checkin_map.keys())

@@ -130,7 +130,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .idea
-config.json
+dailycheckin/config.json
 
 .next
 node_modules
